@@ -1,0 +1,81 @@
+@import "../variable";
+
+.my-header {
+  position: relative;
+  margin-bottom: 2rem;
+
+  --time-percent: 0.5;
+
+  &-title {
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+    padding-bottom: 1px;
+    color: $black;
+    font-size: $font-size-huge;
+    border-bottom: 2.5px solid #e7e7eb;
+
+    &::before {
+      display: block;
+      margin: 0 auto;
+      background: #f6f6f6;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-left: .2rem;
+      padding-right: .2rem;
+      opacity: 1;
+      transition: .5s .3s opacity ease-out;
+      z-index: 1;
+      content: attr(time-str);
+      position: absolute;
+      font-weight: normal;
+      font-size: $font-size-small;
+      top: 1.5rem;
+      text-align: center;
+      color: $primary;
+    }
+
+    &::after {
+      position: relative;
+      z-index: 0;
+      background-color: $secondary;
+      content: "";
+      height: 2.5px;
+      display: block;
+      top: 3.5px;
+      left: 0;
+      width: calc(100% * var(--time-percent));
+    }
+
+    &:hover {
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    @include mobile() {
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    @include tablet-only() {
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &-sub {
+    position: absolute;
+    color: $primary;
+    font-weight: bold;
+    top: 8px;
+    right: 0;
+    line-height: $font-size-huge;
+
+    @include mobile() {
+      margin-right: 1rem;
+    }
+  }
+}

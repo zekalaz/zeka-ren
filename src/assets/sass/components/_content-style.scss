@@ -1,0 +1,49 @@
+@import "../variable";
+
+.my-page-content {
+  color: #222;
+
+  a {
+    @extend %effect-a;
+  }
+
+  p {
+    margin-top: .75rem;
+    margin-bottom: .75rem;
+
+    > code {
+      padding: 2px 4px;
+      font-size: 90%;
+      border-radius: 4px;
+      color: #c7254e;
+      background-color: #f9f2f4;
+    }
+  }
+
+  blockquote {
+    margin: 0;
+    padding-left: 1rem;
+    border-left: $secondary 2.5px solid;
+  }
+
+  iframe {
+    width: 100%;
+    height: 450px;
+  }
+
+  ul, ol {
+    padding-left: 1rem;
+    li{
+      padding-bottom: .4rem;
+    }
+  }
+}
+
+
+@media (max-width: 765px){
+  .diary-wrap {
+    iframe {
+      height: 260px;
+    }
+  }
+}

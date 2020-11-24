@@ -1,0 +1,111 @@
+@import "variable";
+@import "components/nav";
+@import "components/header";
+@import "components/tools";
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  letter-spacing: 0.03rem;
+  font: 400 14px/1.6 -apple-system,Noto Sans,Helvetica Neue,Helvetica,Nimbus Sans L,Arial,Liberation Sans,PingFang SC,Hiragino Sans GB,Noto Sans CJK SC,Source Han Sans SC,Source Han Sans CN,Microsoft YaHei,Wenquanyi Micro Hei,WenQuanYi Zen Hei,ST Heiti,SimHei,WenQuanYi Zen Hei Sharp,sans-serif;
+}
+
+a {
+  position: relative;
+  transition: color .3s;
+  color: $secondary;
+}
+
+::selection {
+  background-color: $secondary;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  background-color: #eee;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fe9600;
+}
+
+.my-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.my-layout {
+  @include tablet() {
+    padding-top: 3.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  @include desktop(){
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.my-container {
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f6;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 4rem .5rem .5rem 1rem;
+  width: 100%;
+
+  & > .my-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  @include tablet() {
+    min-height: 700px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1.5rem;
+    width: 94%;
+    max-width: 768px;
+  }
+
+  @include desktop() {
+    min-height: 700px;
+    padding: 2.5rem 3.5rem .5rem;
+    width: 70%;
+    max-width: 768px;
+  }
+
+}
+
+
+.my-footer {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  color: $grey;
+
+  a {
+    @extend %effect-a;
+  }
+
+
+  font-size: $font-size-small;
+  background-color: inherit;
+}
+
+.aplayer {
+  @include mobile() {
+    display: none;
+  }
+}

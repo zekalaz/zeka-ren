@@ -1,0 +1,73 @@
+.side-tool-wrap {
+  position: fixed;
+  z-index: 10;
+  bottom: 1.5rem;
+  right: 1rem;
+}
+
+.side-tool-main{
+  //box-sizing: content-box;
+  position: relative;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(89, 89, 89, 80%);
+  line-height: 3rem;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+
+  cursor: pointer;
+
+  &::before{
+
+  }
+}
+
+.side-tool-items{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.side-tool-item{
+  z-index: -1;
+  position: absolute;
+  width: 2.4rem;
+  left: .5rem;
+  top: .5rem;
+  height: 2.4rem;
+  background-color: rgba(89, 89, 89, 80%);
+  border-radius: 50%;
+  line-height: 2.4rem;
+  font-size: 1rem;
+  opacity: 0;
+  cursor: pointer;
+
+  transition: .4s cubic-bezier(0,0,.382,1.618);
+  transition-property: transform,opacity;
+
+
+}
+
+.active{
+  .side-tool-item{
+    opacity: 1;
+    color: white;
+
+    &:hover {
+      color: inherit;
+    }
+
+    &:nth-child(1){
+      transform: translate3d(0,-160%,0);
+    }
+
+    &:nth-child(2){
+      transform: translate3d(-120%,-120%,0);
+    }
+
+    &:nth-child(3){
+      transform: translate3d(-160%,0,0);
+    }
+  }
+}

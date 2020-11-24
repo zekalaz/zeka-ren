@@ -1,0 +1,48 @@
+@import "../variable";
+
+.my-friends {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+
+  &__item {
+    display: flex;
+    min-height: 5rem;
+    padding: 1rem;
+  }
+
+  &__avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+
+    >img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &__info {
+    margin-top: .3rem;
+    margin-left: .8rem;
+  }
+
+  &__name {
+    color: $primary;
+    font-weight: bold;
+    font-size: $font-size-large;
+  }
+
+  &__intro {
+    font-size: $font-size-small;
+    color: $grey;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+#disqus_thread {
+  margin-top: 2.5rem;
+}

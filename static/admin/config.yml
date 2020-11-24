@@ -1,0 +1,85 @@
+backend:
+  name: blog
+
+media_folder: stuff/media
+public_folder: /img
+
+local_backend: true
+
+collections:
+  - name: 'diary'
+    label: '日记'
+    folder: 'stuff/diary'
+    create: true
+    description: 'Zeka 的日记'
+    editor:
+      preview: false
+    identifier_field: title
+    summary: '{{date}}__{{title}}'
+    slug: "{{year}}-{{month}}-{{day}}_{{title}}"
+    allow_add: false
+    media_folder: '{{title}}'
+    public_folder: ''
+    path: '{{year}}/{{month}}/{{day}}/{{title}}'
+    sortable_fields: ['date']
+    fields:
+      - { label: '时间', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: '标题', name: 'title', widget: 'string' }
+      - { label: '内容', name: 'body', widget: 'markdown' }
+      - label: '图片'
+        name: 'images'
+        widget: 'list'
+        required: false
+        summary: "描述：{{alt}} 图片名称：{{src}}"
+        fields:
+          - { label: '上传图片', name: 'src', widget: 'image', allow_multiple: true }
+          - { label: '文字说明', name: 'alt', widget: 'string', required: false }
+      - label: '标签'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        summary: "{{name}}"
+        default: []
+        fields:
+          - { label: '标签', name: 'name', widget: 'string', required: false }
+  - name: 'friends'
+    label: '友链'
+    files:
+      - file: 'stuff/friends/friends.json'
+        label: '朋友'
+        name: 'friends'
+        extension: 'json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - label: friends
+            name: friends
+            widget: list
+            allow_add: true
+            fields:
+              - { label: '名称', name: 'name', widget: 'string' }
+              - { label: "网站", name: "website", widget: 'string' }
+              - { label: "描述", name: "description", widget: "string", required: false }
+              - { label: "头像", name: "avatar", widget: "string", required: false }
+  - name: 'audio'
+    label: '站点音乐'
+    files:
+      - file: 'stuff/audio/audio.json'
+        label: '站点音乐'
+        name: 'audio'
+        extension: 'json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - label: '站点音乐'
+            name: 'audio'
+            widget: 'list'
+            allow_add: true
+            fields:
+              - { label: '曲名', name: 'name', widget: 'string' }
+              - { label: '封面', name: 'cover', public_folder: '/static/audio/cover', media_folder: '/static/static/audio/cover', widget: 'image' }
+              - { label: '路径', name: 'url',public_folder: '/static/audio/audio', media_folder: '/static/static/audio/audio', widget: 'file' }
+              - { label: '作者', name: 'artist', widget: 'string' }
+              - { label: '主题', name: 'theme', default: '#ebd0c2', widget: 'string' }

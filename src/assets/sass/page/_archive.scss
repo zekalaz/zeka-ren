@@ -1,0 +1,37 @@
+.archive-wrap {
+  color: $grey-darker;
+}
+
+.archive-year{
+  font-size: $font-size-large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.archive-month{
+  border-left: 4px solid #FE9600;
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.archive-list{
+  padding-left: 1rem;
+  margin-top: .2rem;
+  margin-bottom: 1rem;
+}
+
+.archive-item{
+  list-style: none;
+  >p{
+    display: -moz-box;
+    display: -webkit-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+}

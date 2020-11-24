@@ -1,0 +1,132 @@
+@import "../variable";
+
+.my-nav{
+  position: fixed;
+  font-size: $font-size-normal;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+
+   a{
+    @extend %effect-a;
+  }
+}
+
+.my-nav-toggle{
+  display: none;
+}
+
+.my-nav-avatar{
+  cursor: pointer;
+  z-index: 4;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #fff;
+  transition: transform .3s, -webkit-transform .3s;
+
+  &::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(/static/images/avatar.jpg);
+    background-size: cover;
+  }
+}
+
+.my-nav-menu{
+  padding: 0;
+  position: absolute;
+  transform: rotate(-90deg);
+  transform-origin: calc( 100% - 20px) 20px;
+  visibility: hidden;
+  opacity: 0;
+  top:0;
+  right:0;
+  z-index: 3;
+  width: 160px;
+  margin: 0;
+  background-color: #505050;
+  border-radius: 5px 25px 5px 5px;
+  transition: all 0.3s;
+  overflow: hidden;
+  >li{
+
+    list-style: none;
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid rgba(100,100,100,0.8);
+
+    &:last-child{
+      border-bottom: none;
+    }
+
+    >a{
+      -webkit-transition: all .3s;
+      transition: all .3s;
+      color: #c8c8c8;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      line-height: 42px;
+      text-decoration: none;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      &:hover{
+        border-bottom: none;
+      }
+    }
+    .icon{
+      margin: 0 13.5px;
+    }
+
+    &:hover{
+      background-color: #323232;
+    }
+  }
+}
+
+.my-nav-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.my-nav-toggle{
+  &:checked{
+    ~ .my-nav-avatar{
+      transform: rotate(360deg);
+    }
+    ~ .my-nav-mask{
+      display: block;
+    }
+    ~ .my-nav-menu{
+      visibility: visible;
+      opacity: 1;
+      transform:rotate(0deg);
+    }
+  }
+}
+
+@media(max-width: 800px){
+  .my-nav-avatar::before{
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+  }
+}
