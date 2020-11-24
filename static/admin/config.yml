@@ -1,5 +1,6 @@
 backend:
-  name: blog
+  name: github
+  branch: master
 
 media_folder: stuff/media
 public_folder: /img
