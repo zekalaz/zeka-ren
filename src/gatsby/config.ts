@@ -13,6 +13,7 @@ const plugins: MyPlugin[] = [
     `gatsby-plugin-sass`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-transformer-json`,
+    `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-netlify-cms`,
     {
         resolve: `gatsby-plugin-layout`,

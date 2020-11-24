@@ -108,7 +108,7 @@ const ArchiveDay = ({ myDate, myKey, month, year }: { myDate: ISortedItemDay, my
             const key = `${myKey}-${day}`;
             return (<div key={key}>
                 { myDate[day].map((item, index) => {
-                    return (<li key={`${key}-${index}`} className="archive-item"><p>{date} » <Link className="archive-item-link"
+                    return (<li key={`${key}-${index}`} className="archive-item"><p>{date} » <Link className="archive-item__link"
                                                                        to={getPageUrl({year, month, hashId: item.title})}>{ item.title } </Link></p>
                     </li>)
                 }) }

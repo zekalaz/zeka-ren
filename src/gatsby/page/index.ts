@@ -28,8 +28,7 @@ const myCreatePages = async ({actions, graphql, reporter}: CreatePagesArgs) => {
 
     createArchive(archiveResult.data as ArchiveQuery, actions);
 
-    const postResult = await graphql(`
-            query DiaryAll {
+    const postResult = await graphql(`query DiaryAll {
   allMarkdownRemark {
     group(field: fields___year_month) {
       nodes {
@@ -39,7 +38,7 @@ const myCreatePages = async ({actions, graphql, reporter}: CreatePagesArgs) => {
             alt
             src {
               image: childImageSharp {
-                fluid(jpegQuality: 100, jpegProgressive: true, toFormat: JPG, maxWidth: 1400) {
+                fluid(jpegQuality: 80, jpegProgressive: true, toFormat: JPG, maxWidth: 1400) {
                   aspectRatio
                   src
                   srcSet

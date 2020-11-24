@@ -26,7 +26,7 @@ const MyImage = (prop: IMyImage): JSX.Element => {
             imageIo.disconnect();
         }
     })
-     return (<img ref={imageEle} className={prop.className + ' my-lazy-image'} alt={(prop.alt === null)?prop.alt: prop.src} src={prop.src} srcSet=""  />);
+     return (<img ref={imageEle} className={prop.className + ' my-lazy-image'} alt={(prop.alt !== null)?prop.alt: prop.src} src={prop.src} srcSet=""  />);
 };
 
 export default MyImage;

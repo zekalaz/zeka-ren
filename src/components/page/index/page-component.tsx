@@ -14,7 +14,7 @@ const PageHeader = ({frontmatter}: {
     const tags = frontmatter.tags;
     return (<>
         <header className='my-page-header'>
-            <a className='my-page-hashtag' id={frontmatter.title} />
+            <div className='my-page-hashtag' id={frontmatter.title} />
             {frontmatter.title}
         </header>
         <div className="my-page-sub is-clearfix">

@@ -40,21 +40,15 @@ const Tools = (): JSX.Element => {
         <div className="side-tool-main" onClick={()=>{setIsActive(!isActive)}}>
             {percent}%
             <div className={`side-tool-items ${isActive?'active': null}`}>
-                <a className="side-tool-item" onClick={()=>scroll2Position(true)}>
-                    <span >
-                        <FontAwesomeIcon icon={faChevronUp} />
-                    </span>
-                </a>
-                <a className="side-tool-item">
-                    <span>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </span>
-                </a>
-                <a className="side-tool-item" onClick={()=>scroll2Position(false)}>
-                    <span>
-                        <FontAwesomeIcon icon={faChevronDown} />
-                    </span>
-                </a>
+                <span className="side-tool-item" onClick={()=>scroll2Position(true)}>
+                    <FontAwesomeIcon icon={faChevronUp} />
+                </span>
+                <span className="side-tool-item">
+                    <FontAwesomeIcon icon={faSearch} />
+                </span>
+                <span className="side-tool-item" onClick={()=>scroll2Position(false)}>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                </span>
             </div>
         </div>
     </div>);
