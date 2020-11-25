@@ -27,7 +27,8 @@ const Tools = (): JSX.Element => {
 
     useEffect(()=>{
         const scrollEvt = () => {
-            setPercent(getPercent());
+            const percent = getPercent()
+            setPercent((isNaN(percent))?0: percent);
         };
 
         window.addEventListener("scroll", scrollEvt);

@@ -42,6 +42,11 @@ a {
   top: 0;
   left: 0;
   z-index: -1;
+  background: #151515;
+
+  @include tablet() {
+    background: url("/static/images/bg.jpeg");
+  }
 }
 
 .my-layout {
@@ -107,5 +112,14 @@ a {
 .aplayer {
   @include mobile() {
     display: none;
+  }
+}
+
+.my-lazy-image {
+  transition: .3s;
+  opacity: 0;
+
+  &__active {
+    opacity: 1;
   }
 }

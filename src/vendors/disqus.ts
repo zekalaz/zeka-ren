@@ -3,13 +3,10 @@ import DisqusJS from 'disqusjs'
 const genDisqus = () => {
     return new DisqusJS({
         shortname: 'zeka-ren',
-        siteName: '',
-        identifier: '',
-        url: '',
-        title: '',
-        api: '',
-        apikey: 'g0hj7BbvcUvj8X2iySE23YQg2faVareW2JylzbEZWR0iPrhWrCba48Zw2lXuGBEO',
-        admin: '',
+        siteName: 'zeka-ren',
+        api: 'https://disqus.skk.moe/disqus/',
+        apikey: 'YY8aVNwSX7yfHwsc5O3zMfNXlnysJl3vzIACudT0MBFm2fZOrtnNUo7cxT8jucB4',
+        admin: 'lazzeka',
         adminLabel: ''
     });
 }
