@@ -1,22 +1,40 @@
 import React from "react";
+import { graphql } from 'gatsby';
 
 import SEO from "../components/public/seo";
 import Header from "../components/public/header";
 
-const AboutContent = (): JSX.Element => {
+interface IAboutProps {
+    markdownRemark: {
+        html: string
+    }
+}
 
-    return (<>
-        <p>Zeka 喜欢 kemomimi！</p>
-        <p>Zeka 喜欢不务正业！</p>
-    </>);
+const AboutContent = ({ content }:{
+    content: string
+}): JSX.Element => {
+
+    return (<div dangerouslySetInnerHTML={{
+        __html: content,
+    }}>
+    </div>);
 };
 
-const About = (): JSX.Element => {
+const About = ({ data }:{
+    data: IAboutProps
+}): JSX.Element => {
     return (<>
         <SEO title="关于" />
         <Header title="关于" />
-        <AboutContent />
+        <AboutContent content={data.markdownRemark.html}/>
     </>);
 };
 
 export default About;
+
+export const AboutQuery = graphql`query About {
+  markdownRemark(frontmatter: {title: {eq: "about.md"}}) {
+    html
+  }
+}
+`;

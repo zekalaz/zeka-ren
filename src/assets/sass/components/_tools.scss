@@ -1,6 +1,6 @@
 .side-tool-wrap {
   position: fixed;
-  z-index: 10;
+  z-index: 1;
   bottom: 1.5rem;
   right: 1rem;
 }
@@ -19,8 +19,16 @@
 
   cursor: pointer;
 
-  &::before{
+  &__text {
+    position: absolute;
+    width: 100%;
+  }
 
+  @include mobile() {
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 110%;
   }
 }
 
@@ -46,6 +54,12 @@
   transition: .4s cubic-bezier(0,0,.382,1.618);
   transition-property: transform,opacity;
 
+  @include mobile() {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 90%;
+  }
 
 }
 

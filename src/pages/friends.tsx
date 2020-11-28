@@ -13,7 +13,7 @@ const FriendsList = ({friends}: {friends: IFriendSingle[]}): JSX.Element => {
             return (<a key={`${friend.name}_${index}`} href={friend.website}>
                 <div className="my-friends__item card">
                     <div className="my-friends__avatar is-clearfix" >
-                        <img src={friend.avatar? friend.avatar: "/static/images/default.jpg"} alt={friend.name}/>
+                        <img src={friend.avatar? friend.avatar: "/static/images/avatar.jpg"} alt={friend.name}/>
                     </div>
                     <div className="my-friends__info is-clearfix">
                         <div className="my-friends__name">{friend.name}</div>

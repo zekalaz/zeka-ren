@@ -6,6 +6,7 @@ import Background from "../components/public/background";
 import APlayer from "../components/public/aplayer";
 import Nav from "../components/public/nav";
 import Footer from "../components/public/footer";
+import Message from "../components/public/message";
 
 const Layout = ({ children }): JSX.Element => {
     return (<div className="my-layout">
@@ -22,6 +23,7 @@ const Layout = ({ children }): JSX.Element => {
         </div>
         <APlayer />
         <Tools />
+        <Message />
     </div>);
 };
 

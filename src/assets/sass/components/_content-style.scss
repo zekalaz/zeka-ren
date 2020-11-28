@@ -37,13 +37,10 @@
       padding-bottom: .4rem;
     }
   }
-}
 
-
-@media (max-width: 765px){
-  .diary-wrap {
+  @include mobile() {
     iframe {
-      height: 260px;
+      height: 250px;
     }
   }
 }

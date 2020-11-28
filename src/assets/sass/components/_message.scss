@@ -1,0 +1,49 @@
+.my-message {
+  position: fixed;
+  z-index: 2;
+  bottom: .8rem;
+  right: .8rem;
+  width: 25rem;
+  opacity: 1;
+  transition: opacity .3s, visibility 0s linear .3s;
+
+  .message{
+    height: 100%;
+    &-header {
+      font-size: 90%;
+      padding: 0.6em 0.8em;
+
+      @include mobile() {
+        border-radius: 0;
+      }
+    }
+
+    &-body {
+      padding: 0.8em 1em;
+      line-height: 1.4;
+
+      >p {
+        display: inline-block;
+      }
+    }
+  }
+
+  @include mobile() {
+    bottom: -.5rem;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.is-invisible {
+  opacity: 0;
+  transition: opacity .3s linear 0s, visibility 0s linear .3s;
+}
+
+.my-confirm-btn {
+  position: relative;
+  display: inline-block;
+  float: right;
+  top: -0.6rem;
+}

@@ -41,7 +41,7 @@ export interface IFeed {
 
 const flagFeed: IFeed = {
     query: `query FeedAll {
-  allMarkdownRemark(limit: 15, sort: {order: DESC, fields: frontmatter___date}) {
+  allMarkdownRemark(limit: 15, sort: {order: DESC, fields: [frontmatter___date, frontmatter___title]}, filter: {frontmatter: {title: {ne: "about.md"}}}) {
     nodes {
       html
       frontmatter {

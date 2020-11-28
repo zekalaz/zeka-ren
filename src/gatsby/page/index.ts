@@ -8,7 +8,7 @@ import createHomepage from "./create-homepage";
 const myCreatePages = async ({actions, graphql, reporter}: CreatePagesArgs) => {
     const archiveResult = await graphql(`
     query ArchiveDataQuery {
-  allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+  allMarkdownRemark(sort: {fields: [frontmatter___date, frontmatter___title], order: DESC}, filter: {frontmatter: {title: {ne: "about.md"}}}) {
     edges {
       node {
         frontmatter {
@@ -29,7 +29,7 @@ const myCreatePages = async ({actions, graphql, reporter}: CreatePagesArgs) => {
     createArchive(archiveResult.data as ArchiveQuery, actions);
 
     const postResult = await graphql(`query DiaryAll {
-  allMarkdownRemark {
+  allMarkdownRemark(sort: {fields: [frontmatter___date, frontmatter___title], order: DESC}, filter: {frontmatter: {title: {ne: "about.md"}}}) {
     group(field: fields___year_month) {
       nodes {
         frontmatter {

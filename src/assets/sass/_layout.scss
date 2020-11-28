@@ -2,6 +2,7 @@
 @import "components/nav";
 @import "components/header";
 @import "components/tools";
+@import "components/message";
 
 html{
   scroll-behavior: smooth;
@@ -45,7 +46,7 @@ a {
   background: #151515;
 
   @include tablet() {
-    background: url("/static/images/bg.jpeg");
+    background: url("/static/images/bg.jpg"), #151515;
   }
 }
 

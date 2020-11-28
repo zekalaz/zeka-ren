@@ -19,12 +19,10 @@ const siteMetadata: ISiteMetadata = {
 };
 
 const plugins: MyPlugin[] = [
-    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-transformer-json`,
-    `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-netlify-cms`,
     {
         resolve: `gatsby-plugin-feed`,
@@ -68,6 +66,13 @@ const plugins: MyPlugin[] = [
             name: `diary`,
             path: `${rootDir}/stuff/diary`,
         }
+    },
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            name: `about`,
+            path: `${rootDir}/stuff/about`,
+        },
     },
     {
         resolve: `gatsby-transformer-remark`,
@@ -125,7 +130,7 @@ const plugins: MyPlugin[] = [
                         icons: "svg",
                     }
                 },
-            ]
+            ],
         }
     },
     `gatsby-transformer-sharp`,
@@ -166,6 +171,41 @@ const plugins: MyPlugin[] = [
             // analyzerMode: "server",
             analyzerPort: "8888",
             defaultSizes: "gzip",
+        },
+    },
+    {
+        resolve: `gatsby-plugin-offline`,
+        options: {
+            workboxConfig: {
+                runtimeCaching: [
+                    {
+                        urlPattern: /(\.js$|\.css$|static\/)/,
+                        handler: `CacheFirst`,
+                    },
+                    {
+                        urlPattern: /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
+                        handler: `NetworkFirst`,
+                        options: {
+                            networkTimeoutSeconds: 1,
+                        },
+                    },
+                    {
+                        urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                        handler: `StaleWhileRevalidate`,
+                    },
+                    {
+                        urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                        handler: `StaleWhileRevalidate`,
+                    },
+                    {
+                        urlPattern: /\/$/,
+                        handler: `NetworkFirst`,
+                        options: {
+                            networkTimeoutSeconds: 2,
+                        },
+                    },
+                ],
+            },
         },
     },
 ];

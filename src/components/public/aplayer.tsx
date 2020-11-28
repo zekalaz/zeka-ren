@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import { graphql, StaticQuery } from 'gatsby'
 import {IAudioItem, IAudioQuery} from "../../types/query/audio";
 
-const ReactAplayer = React.lazy(()=>
-    import('react-aplayer')
+const ReactAplayer = React.lazy(() => {
+    return import('react-aplayer')
+}
 );
 
 const MyAplayer = ({ audio }: {audio: IAudioItem[]}): JSX.Element => {
-
 
     const onInit = () => {
         (document.querySelector('.aplayer-info') as HTMLElement).style.display = "inherit"
@@ -21,7 +21,6 @@ const MyAplayer = ({ audio }: {audio: IAudioItem[]}): JSX.Element => {
         mini: false,
         audio,
     };
-
     return (<ReactAplayer
             {...props}
             onInit={onInit}
@@ -29,8 +28,6 @@ const MyAplayer = ({ audio }: {audio: IAudioItem[]}): JSX.Element => {
 };
 
 const APlayer = (): JSX.Element => {
-
-    const isSSR = typeof window === "undefined"
 
     // @ts-ignore
     return (<StaticQuery query={graphql`query AudioAll {
@@ -44,13 +41,13 @@ const APlayer = (): JSX.Element => {
     }
   }
 }`} render={(data: IAudioQuery)=>{
-            return  !isSSR && (
-                <React.Suspense fallback={<div />}>
+        const isSSR = typeof window === "undefined"
+    return  !isSSR && (
+                <Suspense fallback={<div className="temp-aplayer"/>}>
                     <MyAplayer audio={data.audioJson.audio} />
-                </React.Suspense>
+                </Suspense>
             )
-        }
-        }>
+        }}>
         </StaticQuery>);
 };
 

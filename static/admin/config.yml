@@ -85,3 +85,16 @@ collections:
               - { label: '路径', name: 'url',public_folder: '/static/audio/audio', media_folder: '/static/static/audio/audio', widget: 'file' }
               - { label: '作者', name: 'artist', widget: 'string' }
               - { label: '主题', name: 'theme', default: '#ebd0c2', widget: 'string' }
+  - - name: 'about'
+      label: '关于'
+      files:
+        - file: 'stuff/about/about.md'
+          label: '关于'
+          name: 'about'
+          extension: 'md'
+          format: 'md'
+          editor:
+            preview: false
+          fields:
+            - { label: '名称', name: 'title', widget: 'string', default: 'about.md'}
+            - { label: '内容', name: 'body', widget: 'markdown' }
