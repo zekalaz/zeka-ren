@@ -42,8 +42,6 @@ collections:
         required: false
         summary: "{{name}}"
         default: []
-        fields:
-          - { label: '标签', name: 'name', widget: 'string', required: false }
   - name: 'friends'
     label: '友链'
     files:
