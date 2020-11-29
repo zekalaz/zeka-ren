@@ -1,6 +1,9 @@
 ---
 date: 2020-11-29
 title: Hello World
+images:
+  - src: 201031_1152-584.jpg
+    alt: Hello World
 tags: []
 ---
 # Poor Man's Styleguide
