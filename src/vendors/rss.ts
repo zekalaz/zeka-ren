@@ -67,7 +67,7 @@ const flagFeed: IFeed = {
     serialize({query}) {
         return query.allMarkdownRemark.nodes.map(node => {
             const [ year, month ] = node.fields.year_month.split('-');
-            const htmlItem = node.html + node.frontmatter.images.map(item=>{
+            const htmlItem = node.html + node.frontmatter.images?.map(item=>{
                 const src = item.src.childImageSharp.fixed.src;
                 return `<img src="${src}" alt=${(item.alt === null)?src: item.alt}>`
             }).join('');
