@@ -1,8 +1,7 @@
 ---
 date: 2020-11-29
 title: Hello World
-tags:
-  - name: 测试
+tags: []
 ---
 # Poor Man's Styleguide
 
