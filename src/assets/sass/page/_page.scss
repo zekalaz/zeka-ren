@@ -13,14 +13,37 @@
 }
 
 .my-page-header {
+  position: relative;
   font-size: $font-size-large;
   font-weight: bold;
-  border-left: 3px solid $primary;
+  border-left: 3.5px solid $primary;
   padding-left: .5rem;
   margin-bottom: .2rem;
+  cursor: pointer;
+
+  &__icon {
+    position: absolute;
+    font-size: $font-size-huge;
+    transition: opacity .3s;
+    opacity: 1;
+    color: $grey;
+    top: .18rem;
+    left: -2rem;
+
+    @include mobile(){
+      display: none;
+    }
+  }
+
+  &:hover {
+    .my-page-header__icon {
+      opacity: 0;
+    }
+  }
 }
 
 .my-page-sub {
+  cursor: pointer;
   font-size: $font-size-small;
   color: $grey;
 

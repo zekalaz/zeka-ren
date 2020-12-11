@@ -17,12 +17,17 @@
       border-radius: 4px;
       color: #c7254e;
       background-color: #f9f2f4;
+
+      &::selection {
+        background: $secondary;
+      }
     }
   }
 
   blockquote {
     margin: 0;
     padding-left: 1rem;
+    color: $grey;
     border-left: $secondary 2.5px solid;
   }
 

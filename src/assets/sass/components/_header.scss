@@ -14,11 +14,13 @@
     color: $black;
     font-size: $font-size-huge;
     border-bottom: 2.5px solid #e7e7eb;
+    opacity: 1;
 
     &::before {
       display: block;
       margin: 0 auto;
       background: #f6f6f6;
+      animation: fade-in-and-out 6s infinite linear;
       left: 50%;
       transform: translateX(-50%);
       padding-left: .2rem;
@@ -47,15 +49,11 @@
       width: calc(100% * var(--time-percent));
     }
 
-    &:hover {
-      &::before {
-        opacity: 0;
-      }
-    }
 
     @include mobile() {
       &::before {
         opacity: 0;
+        animation: none;
       }
     }
 
@@ -77,5 +75,23 @@
     @include mobile() {
       margin-right: 1rem;
     }
+  }
+}
+
+@keyframes fade-in-and-out {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

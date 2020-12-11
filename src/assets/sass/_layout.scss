@@ -21,11 +21,11 @@ a {
 
 ::selection {
   background-color: $secondary;
-  color: #fff;
+  color: $white-ter;
 }
 
 ::-webkit-scrollbar {
-  background-color: #eee;
+  background-color: $grey-lighter;
 }
 ::-webkit-scrollbar {
   width: 6px;
