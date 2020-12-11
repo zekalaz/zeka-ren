@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoConsumer } from 'react-photo-view';
 import MyImage from "../../public/image";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faTag } from '@fortawesome/free-solid-svg-icons';
+import { faTag, faLink } from '@fortawesome/free-solid-svg-icons';
 import {IFrontMatter, IImage, NodeItem} from "../../../types/query/post";
 
 const PageHeader = ({frontmatter}: {
@@ -15,6 +15,7 @@ const PageHeader = ({frontmatter}: {
     return (<>
         <header className='my-page-header'>
             <div className='my-page-hashtag' id={frontmatter.title} />
+            <FontAwesomeIcon className="my-page-header__icon" icon={faLink} />
             {frontmatter.title}
         </header>
         <div className="my-page-sub is-clearfix">

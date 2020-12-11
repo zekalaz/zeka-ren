@@ -138,13 +138,13 @@ const plugins: MyPlugin[] = [
     {
         resolve: `gatsby-plugin-manifest`,
         options: {
-            name: `zeka no flag`,
+            name: `Zeka and his Flag`,
             short_name: `zeka_flag`,
             start_url: `/`,
-            background_color: `#663399`,
-            theme_color: `#663399`,
+            background_color: `#f6f6f6`,
+            theme_color: `#f6f6f6`,
             display: `minimal-ui`,
-            icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+            icon: `src/images/icon.jpg`, // This path is relative to the root of the site.
         },
     },
     {
@@ -164,6 +164,7 @@ const plugins: MyPlugin[] = [
             cookieDomain: "flag.zeka.cloud",
         },
     },
+    `gatsby-plugin-sitemap`,
     {
         resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
         options: {

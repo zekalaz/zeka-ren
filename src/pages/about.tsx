@@ -14,7 +14,7 @@ const AboutContent = ({ content }:{
     content: string
 }): JSX.Element => {
 
-    return (<div dangerouslySetInnerHTML={{
+    return (<div className="my-about-wrap" dangerouslySetInnerHTML={{
         __html: content,
     }}>
     </div>);

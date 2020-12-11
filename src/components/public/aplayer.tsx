@@ -17,8 +17,8 @@ const MyAplayer = ({ audio }: {audio: IAudioItem[]}): JSX.Element => {
     const props = {
         theme: '#F57F17',
         fixed: true,
-        listFolded: true,
-        mini: false,
+        listFolded: false,
+        mini: true,
         audio,
     };
     return (<ReactAplayer
